@@ -1,19 +1,16 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\api\EditalController;
+use App\Http\Controllers\api\FluxoController;
+use App\Http\Controllers\api\InscricaoController;
+use App\Http\Controllers\api\QuestionController;
+use App\Http\Resources\Inscricao;
+use App\Models\Edital;
+use App\Models\Fluxo;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+//Listar questões
+Route::get('question',[QuestionController::class,'index']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Listar fluxos
+Route::get('fluxo',[FluxoController::class,'index']);
