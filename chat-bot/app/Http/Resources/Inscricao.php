@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Fluxo extends JsonResource
+class Inscricao extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,7 @@ class Fluxo extends JsonResource
         return
         [
             'id'=>$this->id,
-            'arquivo'=>$this->arquivo,
+            'nome'=>$this->nome,
         ];
     }
 }

@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fluxo extends Model
+class Inscricao extends Model
 {
+    protected $table = 'inscricao';
     protected $fillable = 
     [
         'id',
-        'arquivo'
+        'nome'
     ];
 }

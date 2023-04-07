@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fluxo;
+use App\Models\Inscricao;
 
-class FluxoController extends Controller
+class InscricaoController extends Controller
 {
 
     public function index()
     {
-       return Fluxo::all();
+       return Inscricao::all();
     }
 }

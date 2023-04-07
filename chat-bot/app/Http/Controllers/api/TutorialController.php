@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fluxo;
+use App\Models\Tutorial;
 
-class FluxoController extends Controller
+class TutorialController extends Controller
 {
 
     public function index()
     {
-       return Fluxo::all();
+       return Tutorial::all();
     }
 }

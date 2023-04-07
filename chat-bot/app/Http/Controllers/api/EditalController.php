@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fluxo;
+use App\Models\Edital;
 
-class FluxoController extends Controller
+class EditalController extends Controller
 {
 
     public function index()
     {
-       return Fluxo::all();
+       return Edital::all();
     }
 }
