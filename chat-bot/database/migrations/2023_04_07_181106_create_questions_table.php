@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pergunta');
-            $table->string('proximos');
+            $table->string('pergunta', 1000);
+            $table->string('resposta', 1000);
+            $table->string('assunto');
         });
     }
 

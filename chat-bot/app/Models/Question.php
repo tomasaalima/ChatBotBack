@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = 
+    protected $fillable =
     [
         'id',
         'pergunta',
-        'proximos',
+        'resposta',
+        'assunto'
     ];
 }

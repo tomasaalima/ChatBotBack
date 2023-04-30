@@ -6,6 +6,8 @@ use App\Http\Controllers\api\InscricaoController;
 use App\Http\Controllers\api\QuestionController;
 use App\Http\Controllers\api\SobreController;
 use App\Http\Controllers\api\TutorialController;
+use App\Http\Controllers\api\ChatController;
+use App\Http\Controllers\api\KeywordsController;
 use Illuminate\Support\Facades\Route;
 
 //Listar questões
@@ -25,3 +27,9 @@ Route::get('tutoriais',[TutorialController::class,'index']);
 
 //Listar sobre
 Route::get('sobre',[SobreController::class,'index']);
+
+//Buscar texto de boas vindas
+Route::get('hello',[ChatController::class,'hello']);
+
+//Buscar respostas ao diálogo do usuário
+Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
