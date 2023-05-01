@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('login',[AuthController::class,'login']);
-
 //EndPoints de edital que não precisam de Auth
 
 //Pesquisar por id
@@ -40,7 +39,8 @@ Route::get('sobre',[SobreController::class,'index']);
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()
 {
-
+    //Logout
+    Route::post('logout',[AuthController::class,'logout']);
     //Listar editais
     Route::get('editais',[EditalController::class,'getAll']);
     //Inserindo edital

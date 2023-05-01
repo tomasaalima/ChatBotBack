@@ -28,15 +28,15 @@ class apiProtectedRoute extends BaseMiddleware
         {
             if($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException)
             {
-                return response()->json(['status'=>'Token inválido']);
+                return response()->json(['status'=>'Token inválido'],Response::HTTP_BAD_REQUEST);
             }
             else if($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException)
             {
-                return response()->json(['status'=>'Token expirado']);
+                return response()->json(['status'=>'Token expirado'],Response::HTTP_BAD_REQUEST);
             }
             else
             {
-                return response()->json(['status'=>'Token não encontrado']);
+                return response()->json(['status'=>'Token não encontrado'],Response::HTTP_NOT_FOUND);
             }
         }
         return $next($request);
