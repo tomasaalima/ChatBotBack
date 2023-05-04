@@ -12,7 +12,7 @@ class EditalController extends Controller
 
     public function getAll(Request $request)
     {
-        $editais=Edital::paginate();
+        $editais=Edital::all();
         return response()->json($editais,200);
     }
 

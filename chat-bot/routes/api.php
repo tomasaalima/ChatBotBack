@@ -35,14 +35,14 @@ Route::get('tutoriais',[TutorialController::class,'index']);
 //Listar sobre
 Route::get('sobre',[SobreController::class,'index']);
 
+ //Listar editais
+ Route::get('editais',[EditalController::class,'getAll']);
 
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()
 {
     //Logout
     Route::post('logout',[AuthController::class,'logout']);
-    //Listar editais
-    Route::get('editais',[EditalController::class,'getAll']);
     //Inserindo edital
     Route::post('editais',[EditalController::class,'insert']);
     //Atualizando edital
