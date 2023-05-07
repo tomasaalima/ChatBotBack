@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fluxos', function (Blueprint $table) {
+        Schema::create('fluxo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('arquivo');
+            $table->timestamps();
         });
     }
 
