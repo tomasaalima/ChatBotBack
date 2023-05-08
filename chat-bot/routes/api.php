@@ -7,6 +7,8 @@ use App\Http\Controllers\api\InscricaoController;
 use App\Http\Controllers\api\QuestaoController;
 use App\Http\Controllers\api\SobreController;
 use App\Http\Controllers\api\TutorialController;
+use App\Http\Controllers\api\ChatController;
+use App\Http\Controllers\api\KeywordsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,6 +33,13 @@ Route::get('tutoriais',[TutorialController::class,'index']);
 //Listar sobre
 Route::get('sobre',[SobreController::class,'index']);
 
+<<<<<<< HEAD
+//Buscar texto de boas vindas
+Route::get('hello',[ChatController::class,'hello']);
+
+//Buscar respostas ao diálogo do usuário
+Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
+=======
  //Listar editais
  Route::get('editais',[EditalController::class,'getAll']);
 
@@ -53,3 +62,4 @@ Route::group(['middleware'=>['apiJWT']],function()
     //Deletando fluxo
     Route::delete('fluxos/{id}',[FluxoController::class,'delete']);
 });
+>>>>>>> d17e7e6617cd624090f3fc5e343b03c91c9099a4
