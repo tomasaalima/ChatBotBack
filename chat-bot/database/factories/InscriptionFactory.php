@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Inscricao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Inscription>
  */
-class InscricaoFactory extends Factory
+class InscriptionFactory extends Factory
 {
     /**
      * Define the model's default state.

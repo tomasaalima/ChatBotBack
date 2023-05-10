@@ -19,7 +19,7 @@ class FluxController extends Controller
     public function getById(Request $request,$id)
     {
         $fluxo=Flux::findOrFail($id);
-        return response()->json([$fluxo]);
+        return response()->json([$fluxo],Response::HTTP_OK);
     }
 
     public function insert(Request $request)

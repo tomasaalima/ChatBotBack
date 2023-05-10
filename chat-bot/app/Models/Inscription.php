@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Inscription extends Model
 {
     use HasFactory;
-    protected $table = 'inscricao';
+    protected $table = 'inscription';
     protected $fillable =
     [
         'id',

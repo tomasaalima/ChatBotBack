@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Flux extends Model
 {
     use HasFactory;
-    protected $table = 'fluxo';
+    protected $table = 'flux';
     protected $fillable =
     [
         'id',

@@ -34,7 +34,7 @@ class RouteTest extends TestCase
      */
     public function testGetById()
     {
-        $response = $this->get('/api/editais/1');
+        $response = $this->get('/api/editais/737');
         $response->assertStatus(200);
     }
 
@@ -50,35 +50,13 @@ class RouteTest extends TestCase
     }
 
     /**
-     * Testa se a rota getByID está funcionando
-     *
-     * @return void
-     */
-    public function testGetQuestionById()
-    {
-        $response = $this->get('/api/questoes/1');
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Testa se a rota getAll está funcionando
-     *
-     * @return void
-     */
-    public function testGetAllQuestions()
-    {
-        $response = $this->get('/api/questoes');
-        $response->assertStatus(200);
-    }
-
-    /**
      * Testa se a rota getById está funcionando
      *
      * @return void
      */
     public function testGetFluxById()
     {
-        $response = $this->get('/api/fluxos/1');
+        $response = $this->get('/api/fluxos/1027');
         $response->assertStatus(200);
     }
 

@@ -20,10 +20,6 @@ Route::post('login',[AuthController::class,'login']);
 //Pesquisar por id
 Route::get('editais/{id}',[EditalController::class,'getById']);
 
-//Listar questões
-Route::get('questoes',[QuestionController::class,'getAll']);
-Route::get('questoes/{id}',[QuestionController::class,'getById']);
-
 //Listar fluxos
 Route::get('fluxos',[FluxController::class,'getAll']);
 Route::get('fluxos/{id}',[FluxController::class,'getById']);
@@ -55,13 +51,6 @@ Route::group(['middleware'=>['apiJWT']],function()
     Route::patch('editais/{id}',[EditalController::class,'update']);
     //Deletando edital
     Route::delete('editais/{id}',[EditalController::class,'delete']);
-
-    //Inserindo questao
-    Route::post('questoes',[QuestionController::class,'insert']);
-    //Atualizando questao
-    Route::patch('questoes/{id}',[QuestionController::class,'update']);
-    //Deletando questao
-    Route::delete('questoes/{id}',[QuestionController::class,'delete']);
 
     //Inserindo fluxo
     Route::post('fluxos',[FluxController::class,'insert']);

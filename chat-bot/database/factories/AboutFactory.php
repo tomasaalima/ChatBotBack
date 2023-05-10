@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Fluxo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\About>
  */
-class FluxoFactory extends Factory
+class AboutFactory extends Factory
 {
     /**
      * Define the model's default state.
