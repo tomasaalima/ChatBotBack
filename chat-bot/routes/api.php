@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\EditalController;
-use App\Http\Controllers\api\FluxoController;
-use App\Http\Controllers\api\InscricaoController;
-use App\Http\Controllers\api\QuestaoController;
-use App\Http\Controllers\api\SobreController;
+use App\Http\Controllers\api\FluxController;
+use App\Http\Controllers\api\InscriptionController;
+use App\Http\Controllers\api\QuestionController;
+use App\Http\Controllers\api\AboutController;
 use App\Http\Controllers\api\TutorialController;
 use App\Http\Controllers\api\ChatController;
 use App\Http\Controllers\api\KeywordsController;
@@ -21,29 +21,28 @@ Route::post('login',[AuthController::class,'login']);
 Route::get('editais/{id}',[EditalController::class,'getById']);
 
 //Listar questões
-Route::get('questoes',[QuestaoController::class,'getAll']);
-Route::get('questoes/{id}',[QuestaoController::class,'getById']);
+Route::get('questoes',[QuestionController::class,'getAll']);
+Route::get('questoes/{id}',[QuestionController::class,'getById']);
 
 //Listar fluxos
-Route::get('fluxos',[FluxoController::class,'getAll']);
-Route::get('fluxos/{id}',[FluxoController::class,'getById']);
+Route::get('fluxos',[FluxController::class,'getAll']);
+Route::get('fluxos/{id}',[FluxController::class,'getById']);
 
 //Listar inscrições
-Route::get('inscricoes',[InscricaoController::class,'index']);
+Route::get('inscricoes',[InscriptionController::class,'index']);
 
 //Listar tutorias
 Route::get('tutoriais',[TutorialController::class,'index']);
 
 //Listar sobre
-Route::get('sobre',[SobreController::class,'index']);
+Route::get('sobre',[AboutController::class,'index']);
 
-<<<<<<< HEAD
 //Buscar texto de boas vindas
 Route::get('hello',[ChatController::class,'hello']);
 
 //Buscar respostas ao diálogo do usuário
 Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
-=======
+
  //Listar editais
  Route::get('editais',[EditalController::class,'getAll']);
 
@@ -52,25 +51,23 @@ Route::group(['middleware'=>['apiJWT']],function()
 {
     //Logout
     Route::post('logout',[AuthController::class,'logout']);
-    //Inserindo edital
-    Route::post('editais',[EditalController::class,'insert']);
     //Atualizando edital
     Route::patch('editais/{id}',[EditalController::class,'update']);
     //Deletando edital
     Route::delete('editais/{id}',[EditalController::class,'delete']);
 
     //Inserindo questao
-    Route::post('questoes',[QuestaoController::class,'insert']);
+    Route::post('questoes',[QuestionController::class,'insert']);
     //Atualizando questao
-    Route::patch('questoes/{id}',[QuestaoController::class,'update']);
+    Route::patch('questoes/{id}',[QuestionController::class,'update']);
     //Deletando questao
-    Route::delete('questoes/{id}',[QuestaoController::class,'delete']);
+    Route::delete('questoes/{id}',[QuestionController::class,'delete']);
 
     //Inserindo fluxo
-    Route::post('fluxos',[FluxoController::class,'insert']);
+    Route::post('fluxos',[FluxController::class,'insert']);
     //Atualizando fluxo
-    Route::patch('fluxos/{id}',[FluxoController::class,'update']);
+    Route::patch('fluxos/{id}',[FluxController::class,'update']);
     //Deletando fluxo
-    Route::delete('fluxos/{id}',[FluxoController::class,'delete']);
+    Route::delete('fluxos/{id}',[FluxController::class,'delete']);
 });
->>>>>>> d17e7e6617cd624090f3fc5e343b03c91c9099a4
+

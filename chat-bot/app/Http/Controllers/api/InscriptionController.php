@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Sobre;
+use App\Models\Inscription;
 
-class SobreController extends Controller
+class InscriptionController extends Controller
 {
 
     public function index()
     {
-       return Sobre::all();
+       return Inscription::all();
     }
 }

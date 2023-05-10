@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Inscricao;
+use App\Models\About;
 
-class InscricaoController extends Controller
+class AboutController extends Controller
 {
 
     public function index()
     {
-       return Inscricao::all();
+       return About::all();
     }
 }
