@@ -11,6 +11,7 @@ class KeywordsController extends Controller
 {
     public function index($subject, $text)
     {
+        $text = str_replace(['.', ',', ';', ':', '-', '_', '/', '\'', '"', '\\'], ' ', $text);
         $wordsArray = explode(" ", $text);
 
         $searches = new Collection();
