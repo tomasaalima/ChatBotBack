@@ -29,6 +29,8 @@ Route::get('inscricoes',[InscriptionController::class,'index']);
 
 //Listar tutorias
 Route::get('tutoriais',[TutorialController::class,'index']);
+//Pesquisar por id
+Route::get('tutoriais/{id}',[TutorialController::class,'getById']);
 
 //Listar sobre
 Route::get('sobre',[AboutController::class,'index']);

@@ -24,7 +24,7 @@ class RouteTest extends TestCase
             'email' => $user->email,
             'password' => 'password',
         ]);
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 
     /**
@@ -81,7 +81,7 @@ class RouteTest extends TestCase
         $response = $this->get('/api/inscricoes');
         $response->assertStatus(200);
     }
-
+    
     /**
      * Testa se a rota index está funcionando
      *
@@ -103,33 +103,70 @@ class RouteTest extends TestCase
         $response = $this->get('/api/sobre');
         $response->assertStatus(200);
     }
-
+  
     /**
-     * Test if chat hello route works
+     * Teste edital com dado válido
      *
      * @return void
      */
-    public function test_chat_hello_route()
+    public function testGetEditalById()
     {
-        $response = $this->getJson('/api/hello');
-        $response->assertOk();
+        $response = $this->get('/api/editais/737');
+        $response->assertStatus(200);
     }
-
-    /**
-     * Test if keywords index route works
+    
+      /**
+     * Teste edital com dado inválido
      *
      * @return void
      */
-    public function test_keywords_index_route()
+    public function testGetEditalByIdFail()
     {
-        $response = $this->getJson('/api/keywords/subject/text');
-        $response->assertOk();
+        $response = $this->get('/api/editais/77');
+        $response->assertStatus(404);
+    }
+    
+    /**
+     * Teste Flux com dado válido
+     *
+     * @return void
+     */
+    public function testGetFluxByIdSucess()
+    {
+        $response = $this->get('/api/fluxos/2726');
+        $response->assertStatus(200);
+    }
+    
+      /**
+     * Teste Flux com dado inválido
+     *
+     * @return void
+     */
+    public function testGetFluxByIdFail()
+    {
+        $response = $this->get('/api/fluxos/77');
+        $response->assertStatus(404);
     }
 
-    public function test_can_get_all_editais()
+    /**
+     * Teste Tutorial com dado válido
+     *
+     * @return void
+     */
+    public function testGetTutorialByIdSucess()
     {
-        $response = $this->getJson('/api/editais');
-        $response->assertOk();
+        $response = $this->get('/api/tutorias/3699');
+        $response->assertStatus(200);
     }
-
+    
+      /**
+     * Teste Tutorial com dado inválido
+     *
+     * @return void
+     */
+    public function testGetTutorialByIdFail()
+    {
+        $response = $this->get('/api/tutorias/77');
+        $response->assertStatus(404);
+    }
 }
