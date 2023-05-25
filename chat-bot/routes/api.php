@@ -44,6 +44,9 @@ Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
  //Listar editais
  Route::get('editais',[EditalController::class,'getAll']);
 
+  //Inserindo editais
+  Route::post('editais',[EditalController::class,'insert']);
+
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()
 {
