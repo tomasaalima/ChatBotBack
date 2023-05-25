@@ -127,7 +127,7 @@ class RouteTest extends TestCase
     }
 
     /**
-     * Test if chat hello route works
+     * Testa se a rota hello do chat está funcionando
      *
      * @return void
      */
@@ -138,7 +138,7 @@ class RouteTest extends TestCase
     }
 
     /**
-     * Test if keywords index route works
+     * Testa se a rota keywords está funcionando
      *
      * @return void
      */

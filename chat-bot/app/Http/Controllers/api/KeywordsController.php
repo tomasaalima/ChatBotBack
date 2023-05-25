@@ -9,7 +9,7 @@ use Mockery\Undefined;
 
 class KeywordsController extends Controller
 {
-    public function index($subject, $text)
+    public function index($text)
     {
         $text = str_replace(['.', ',', ';', ':', '-', '_', '/', '\'', '"', '\\'], ' ', $text);
         $wordsArray = explode(" ", $text);
@@ -17,9 +17,8 @@ class KeywordsController extends Controller
         $searches = new Collection();
 
         foreach($wordsArray as $word) {
-            if  (strlen($word) > 3) {
-                $search = Question::   where('pergunta','like', '%'.$word.'%')
-                                    ->where('assunto', '=', $subject)
+            if  (strlen($word) > 1) {
+                $search = Question::where('pergunta','like', '%'.$word.'%')
                                     ->select('pergunta', 'resposta')
                                     ->get();
 

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Fluxo>
  */
-class FluxoFactory extends Factory
+class FluxFactory extends Factory
 {
     /**
      * Define the model's default state.

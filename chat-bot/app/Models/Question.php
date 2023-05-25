@@ -9,12 +9,11 @@ class Question extends Model
 {
 
     use HasFactory;
-    protected $table = 'question';
+    protected $table = 'questao';
     protected $fillable =
     [
         'id',
         'pergunta',
-        'resposta',
-        'assunto'
+        'resposta'
     ];
 }

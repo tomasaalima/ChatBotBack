@@ -41,7 +41,7 @@ Route::get('sobre',[AboutController::class,'index']);
 Route::get('hello',[ChatController::class,'hello']);
 
 //Buscar respostas ao diálogo do usuário
-Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
+Route::get('keywords/{text}', [KeywordsController::class, 'index']);
 
  //Listar editais
  Route::get('editais',[EditalController::class,'getAll']);
