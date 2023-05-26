@@ -31,6 +31,11 @@ Route::get('inscricoes',[InscriptionController::class,'index']);
 Route::get('tutoriais',[TutorialController::class,'index']);
 //Pesquisar por id
 Route::get('tutoriais/{id}',[TutorialController::class,'getById']);
+//Inserir tutorial
+Route::post('tutoriais', [TutorialController::class, 'store']);
+//Remover tutorial
+Route::delete('tutoriais/{id}', [TutorialController::class, 'remove']);
+
 
 //Listar sobre
 Route::get('sobre',[AboutController::class,'index']);
@@ -41,11 +46,11 @@ Route::get('hello',[ChatController::class,'hello']);
 //Buscar respostas ao diálogo do usuário
 Route::get('keywords/{subject}/{text}', [KeywordsController::class, 'index']);
 
- //Listar editais
- Route::get('editais',[EditalController::class,'getAll']);
+//Listar editais
+Route::get('editais',[EditalController::class,'getAll']);
 
-  //Inserindo editais
-  Route::post('editais',[EditalController::class,'insert']);
+//Inserindo editais
+Route::post('editais',[EditalController::class,'insert']);
 
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()

@@ -26,12 +26,10 @@ class EditalController extends Controller
     public function insert(Request $request)
     {
         $data = $request->validate([
-            'id' => 'required|integer',
             'arquivo' => 'required|file'
         ]);
-        
         $arquivo = $request->file('arquivo');
-        $caminhoDestino =storage_path('midia');
+        $caminhoDestino =storage_path('/editais');
         if (!Storage::exists($caminhoDestino)) {
             Storage::makeDirectory($caminhoDestino);
         }
@@ -41,8 +39,9 @@ class EditalController extends Controller
         if (!in_array($extensaoArquivo, $extensoesPermitidas)) {
             return response()->json(['message' => 'Extensão de arquivo inválida.'], Response::HTTP_BAD_REQUEST);
         }
-        $arquivo->storeAs($caminhoDestino, $nomeArquivo);
-        $data['arquivo'] = $caminhoDestino . $nomeArquivo;
+        $arquivo->storeAs(implode('/', [$caminhoDestino, $nomeArquivo]));
+
+        $data['arquivo'] = $caminhoDestino . '/' . $nomeArquivo;
         Edital::create($data);
         return response()->json(['message' => 'Edital gravado com sucesso!'], Response::HTTP_CREATED);
     }

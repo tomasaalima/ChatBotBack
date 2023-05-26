@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tutorial', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('arquivo');
+            $table->string('src');
+            $table->string('title');
             $table->timestamps();
         });
     }
