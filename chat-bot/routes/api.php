@@ -41,6 +41,9 @@ Route::get('keywords/{text}', [KeywordsController::class, 'index']);
 
  //Listar editais
  Route::get('editais',[EditalController::class,'getAll']);
+ 
+     //Inserindo questao
+     Route::post('questoes',[PerguntaController::class,'insert']);
 
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()
@@ -51,9 +54,6 @@ Route::group(['middleware'=>['apiJWT']],function()
     Route::patch('editais/{id}',[EditalController::class,'update']);
     //Deletando edital
     Route::delete('editais/{id}',[EditalController::class,'delete']);
-
-    //Inserindo questao
-    Route::post('questoes',[PerguntaController::class,'insert']);
     //Atualizando questao
     Route::patch('questoes/{id}',[PerguntaController::class,'update']);
     //Deletando questao

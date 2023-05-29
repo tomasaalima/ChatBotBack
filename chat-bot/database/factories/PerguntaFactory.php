@@ -20,9 +20,7 @@ class PerguntaFactory extends Factory
         return [
             'id'=>rand(1,10000),
             'pergunta' => fake()->name(),
-            'resposta' => fake()->name(),
-            'update_at' => now(),
-            'created_at' => now(),
+            'resposta' => fake()->name()
         ];
     }
 }
