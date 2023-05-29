@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tutorial;
+use App\Models\Manual;
 
-class TutorialController extends Controller
+class ManualController extends Controller
 {
 
     public function index()
     {
-       return Tutorial::all();
+       return Manual::all();
     }
 }

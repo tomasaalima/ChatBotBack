@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Sobre;
 use App\Models\About;
 
-class AboutController extends Controller
+class SobreController extends Controller
 {
 
     public function index()
     {
-       return About::all();
+       return Sobre::all();
     }
 }

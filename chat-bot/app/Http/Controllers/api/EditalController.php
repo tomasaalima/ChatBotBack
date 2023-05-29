@@ -16,7 +16,7 @@ class EditalController extends Controller
         return response()->json($editais,200);
     }
 
-    public function getById(Request $request,$id)
+    public function getById($id)
     {
         $edital=Edital::findOrFail($id);
         return response()->json([$edital]);
@@ -26,8 +26,9 @@ class EditalController extends Controller
     {
         $data=$request->validate(
         [
-            'id'=>'required|integer',
-            'arquivo'=>'required|string|max:255'
+            'id'=>'integer',
+            'arquivo'=>'required|file',
+            'titulo' =>'string'
         ]
         );
         Edital::create($data);

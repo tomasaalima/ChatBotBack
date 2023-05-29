@@ -3,10 +3,10 @@
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\EditalController;
 use App\Http\Controllers\api\FluxController;
-use App\Http\Controllers\api\InscriptionController;
+use App\Http\Controllers\api\ManualController;
 use App\Http\Controllers\api\QuestionController;
-use App\Http\Controllers\api\AboutController;
-use App\Http\Controllers\api\TutorialController;
+use App\Http\Controllers\api\SobreController;
+use App\Http\Controllers\api\VideoController;
 use App\Http\Controllers\api\ChatController;
 use App\Http\Controllers\api\KeywordsController;
 use Illuminate\Support\Facades\Route;
@@ -21,24 +21,20 @@ Route::post('login',[AuthController::class,'login']);
 Route::get('editais/{id}',[EditalController::class,'getById']);
 
 //Listar questões
-Route::get('questoes',[QuestionController::class,'getAll']);
-Route::get('questoes/{id}',[QuestionController::class,'getById']);
-
-//Listar fluxos
-Route::get('fluxos',[FluxController::class,'getAll']);
-Route::get('fluxos/{id}',[FluxController::class,'getById']);
+Route::get('questoes',[PerguntaController::class,'getAll']);
+Route::get('questoes/{id}',[PerguntaController::class,'getById']);
 
 //Listar inscrições
-Route::get('inscricoes',[InscriptionController::class,'index']);
+Route::get('manuais',[ManualController::class,'index']);
 
 //Listar tutorias
-Route::get('tutoriais',[TutorialController::class,'index']);
+Route::get('videos',[VideoController::class,'index']);
 
 //Listar sobre
-Route::get('sobre',[AboutController::class,'index']);
+Route::get('sobre',[SobreController::class,'index']);
 
 //Buscar texto de boas vindas
-Route::get('hello',[ChatController::class,'hello']);
+Route::get('init',[ChatController::class,'init']);
 
 //Buscar respostas ao diálogo do usuário
 Route::get('keywords/{text}', [KeywordsController::class, 'index']);
@@ -57,17 +53,10 @@ Route::group(['middleware'=>['apiJWT']],function()
     Route::delete('editais/{id}',[EditalController::class,'delete']);
 
     //Inserindo questao
-    Route::post('questoes',[QuestionController::class,'insert']);
+    Route::post('questoes',[PerguntaController::class,'insert']);
     //Atualizando questao
-    Route::patch('questoes/{id}',[QuestionController::class,'update']);
+    Route::patch('questoes/{id}',[PerguntaController::class,'update']);
     //Deletando questao
-    Route::delete('questoes/{id}',[QuestionController::class,'delete']);
-
-    //Inserindo fluxo
-    Route::post('fluxos',[FluxController::class,'insert']);
-    //Atualizando fluxo
-    Route::patch('fluxos/{id}',[FluxController::class,'update']);
-    //Deletando fluxo
-    Route::delete('fluxos/{id}',[FluxController::class,'delete']);
+    Route::delete('questoes/{id}',[PerguntaController::class,'delete']);
 });
 

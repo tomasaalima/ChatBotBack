@@ -3,49 +3,49 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Question;
+use App\Models\Pergunta;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class QuestionController extends Controller
+class PerguntaController extends Controller
 {
 
-    public function getAll(Request $request)
+    public function getAll()
     {
-        $editais=Question::paginate();
-        return response()->json($editais,200);
+        $perguntas=Pergunta::paginate();
+        return response()->json($perguntas,200);
     }
 
-    public function getById(Request $request,$id)
+    public function getById($id)
     {
-        $questao=Question::findOrFail($id);
-        return response()->json([$questao]);
+        $perguntas=Pergunta::findOrFail($id);
+        return response()->json([$perguntas]);
     }
 
     public function insert(Request $request)
     {
         $data=$request->validate(
         [
-            'id'=>'required|integer',
+            'id'=>'integer',
             'pergunta'=>'required|string|max:255',
-            'proximos'=>'required|string|max:255'
+            'resposta'=>'required|string|max:255'
         ]
         );
-        Question::create($data);
+        Pergunta::create($data);
         return response()->json(['message'=>'Questao gravado com sucesso!'],Response::HTTP_CREATED);
     }
 
     public function update(Request $request,$id)
     {
         $data=$request->all();
-        $questao=Question::findOrFail($id);
-        $questao->update($data);
+        $pergunta=Pergunta::findOrFail($id);
+        $pergunta->update($data);
         return  response()->json(['message'=>'Questao atualizado com sucesso!'],Response::HTTP_OK);
     }
 
     public function delete($id)
     {
-        Question::findOrFail($id)->delete();
+        Pergunta::findOrFail($id)->delete();
         return response()->json([],Response::HTTP_NO_CONTENT);
     }
 }
