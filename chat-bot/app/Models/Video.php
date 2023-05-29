@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Video extends Model
 {
-
     use HasFactory;
-    protected $table = 'questao';
+    protected $table = 'video';
     protected $fillable =
     [
         'id',
-        'pergunta',
-        'resposta'
+        'link',
+        'titulo',
     ];
 }
