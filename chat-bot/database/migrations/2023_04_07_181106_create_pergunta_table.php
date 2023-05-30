@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('pergunta', 1000);
             $table->string('resposta', 1000);
+            $table->timestamps();
         });
     }
 
