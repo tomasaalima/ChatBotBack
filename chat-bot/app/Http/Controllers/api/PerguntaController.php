@@ -10,9 +10,9 @@ use Illuminate\Http\Response;
 class PerguntaController extends Controller
 {
 
-    public function getAll()
+    public function index()
     {
-        $perguntas=Pergunta::paginate();
+        $perguntas=Pergunta::all();
         return response()->json($perguntas,200);
     }
 
@@ -22,7 +22,7 @@ class PerguntaController extends Controller
         return response()->json([$perguntas]);
     }
 
-    public function insert(Request $request)
+    public function store(Request $request)
     {
         $data=$request->validate(
         [
@@ -32,20 +32,17 @@ class PerguntaController extends Controller
         ]
         );
         Pergunta::create($data);
-        return response()->json(['message'=>'Questao gravado com sucesso!'],Response::HTTP_CREATED);
+        return response()->json(['message'=>'Pergunta gravada com sucesso!'],Response::HTTP_CREATED);
     }
 
     public function update(Request $request,$id)
     {
-        $data=$request->all();
-        $pergunta=Pergunta::findOrFail($id);
-        $pergunta->update($data);
-        return  response()->json(['message'=>'Questao atualizado com sucesso!'],Response::HTTP_OK);
+        //OFF
     }
 
-    public function delete($id)
+    public function remove($id)
     {
         Pergunta::findOrFail($id)->delete();
-        return response()->json([],Response::HTTP_NO_CONTENT);
+        return response()->json(['message'=>'Pergunta removida com sucesso!'],Response::HTTP_NO_CONTENT);
     }
 }

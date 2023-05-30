@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class EditalController extends Controller
 {
-
     public function index()
     {
         $editais=Edital::all();
@@ -27,9 +26,6 @@ class EditalController extends Controller
 
         // Mapear extensões para tipos de conteúdo
         $tiposConteudo = [
-            'jpg' => 'image/jpeg',
-            'jpeg' => 'image/jpeg',
-            'png' => 'image/png',
             'pdf' => 'application/pdf',
             'doc' => 'application/msword',
             'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -55,11 +51,11 @@ class EditalController extends Controller
         ]);
 
         $arquivo = $request->file('arquivo');
-        $caminhoDestino =storage_path('manuais');
+        $caminhoDestino =storage_path('editais');
         if (!Storage::exists($caminhoDestino)) {
             Storage::makeDirectory($caminhoDestino);
         }
-        $extensoesPermitidas = ['png', 'jpg', 'jpeg', 'pdf', 'docx', 'doc'];
+        $extensoesPermitidas = ['pdf', 'docx', 'doc'];
         $nomeArquivo = $arquivo->getClientOriginalName();
         $extensaoArquivo = $arquivo->getClientOriginalExtension();
         if (!in_array($extensaoArquivo, $extensoesPermitidas)) {

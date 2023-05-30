@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ManualController extends Controller
 {
-
     public function index()
     {
         $manuais=Manual::all();
