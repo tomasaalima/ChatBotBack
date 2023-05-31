@@ -15,9 +15,9 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'senha']);
+        $credentials = $request->only(['email', 'password']);
         if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => $credentials],Response::HTTP_NOT_FOUND);
+            return response()->json(['error' => 'Usuário ou senha inválidos'],Response::HTTP_NOT_FOUND);
         }
         return $this->respondWithToken($token);
     }

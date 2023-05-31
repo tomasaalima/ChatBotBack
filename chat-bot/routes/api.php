@@ -6,15 +6,20 @@ use App\Http\Controllers\api\ManualController;
 use App\Http\Controllers\api\SobreController;
 use App\Http\Controllers\api\VideoController;
 use App\Http\Controllers\api\ChatController;
+use App\Http\Controllers\api\CsrfCookieController;
 use App\Http\Controllers\api\KeywordsController;
 use App\Http\Controllers\api\PerguntaController;
+use App\Http\Controllers\api\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-
-
+//Autenticação
 Route::post('login',[AuthController::class,'login']);
-//EndPoints de edital que não precisam de Auth
+
+//
+Route::get('user',[UserController::class, 'index']);
+Route::post('user',[UserController::class, 'store']);
+Route::delete('user',[UserController::class, 'remove']);
 
 
 //Listar perguntas
@@ -59,22 +64,30 @@ Route::post('videos', [VideoController::class, 'store']);
 Route::delete('videos/{id}', [VideoController::class, 'remove']);
 
 
-//Listar sobre
+//Buscar sobre
 Route::get('sobre',[SobreController::class,'index']);
+//Inserir sobre
+Route::post('sobre',[SobreController::class,'store']);
+//Remover sobre
+Route::delete('sobre',[SobreController::class,'remove']);
+
+
 
 //Buscar texto de boas vindas
 Route::get('init',[ChatController::class,'init']);
 
 //Buscar respostas ao diálogo do usuário
-Route::get('keywords/{text}', [KeywordsController::class, 'index']);
+Route::get('chat/{text}', [KeywordsController::class, 'index']);
 
-//Inserindo questao
-Route::post('questoes',[PerguntaController::class,'insert']);
+Route::get('/csrf-cookie', [CsrfCookieController::class, 'getCsrfToken']);
 
 //Vão precisar de auth
 Route::group(['middleware'=>['apiJWT']],function()
 {
     //Logout
     Route::post('logout',[AuthController::class,'logout']);
+
+    //Token csrf
+
 });
 
