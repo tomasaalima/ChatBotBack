@@ -73,6 +73,18 @@ Route::put('videos/{id}',[VideoController::class,'update']);
 //Remover video
 Route::delete('videos/{id}', [VideoController::class, 'remove']);
 
+/* Implementações futuras
+//Listar videos
+Route::get('videos2',[Video2Controller::class,'index']);
+//Pesquisar por id
+Route::get('videos2/{id}',[Video2Controller::class,'getById']);
+//Inserir video
+Route::post('videos2', [Video2Controller::class, 'store']);
+//Atualizar titulo do video (NOTWORKING)
+Route::put('videos2/{id}',[Video2Controller::class,'update']);
+//Remover video
+Route::delete('videos2/{id}', [Video2Controller::class, 'remove']);
+*/
 
 //Buscar sobre
 Route::get('sobre',[SobreController::class,'index']);
