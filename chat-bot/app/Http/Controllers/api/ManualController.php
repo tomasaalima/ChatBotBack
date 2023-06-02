@@ -46,6 +46,12 @@ class ManualController extends Controller
         ->header('Content-Type', $tipoConteudo);
     }
 
+    public function getData($id)
+    {
+        $manual=Manual::findOrFail($id);
+        return response()->json([$manual],Response::HTTP_OK);
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -71,9 +77,17 @@ class ManualController extends Controller
         return response()->json(['message' => 'Manual gravado com sucesso!'], Response::HTTP_CREATED);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        //OFF
+        $data = $request->validate([
+            'titulo' => 'required|string',
+        ]);
+
+        $manual = Manual::findOrFail($id);
+        $manual->update($data);
+        $manual->save();
+
+        return response()->json(['message' => 'Título do manual atualizado com sucesso!', 'manual' => $manual], 200);
     }
 
 

@@ -25,9 +25,14 @@ class SobreController extends Controller
         return response()->json(['message' => 'Mensagem adicionada com sucesso!', 'sobre' => $sobre], 201);
     }
 
-    public function update()
+    public function update(Request $request)
     {
-        //OFF
+        $data = $request->validate([
+            'mensagem' => 'required|string',
+        ]);
+        $sobre = Sobre::first();
+        $sobre->update($data);
+        return response()->json(['message' => 'Mensagem atualizada com sucesso!', 'sobre' => $sobre], 200);
     }
 
     public function remove()

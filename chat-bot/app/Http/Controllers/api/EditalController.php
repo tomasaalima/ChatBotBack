@@ -43,6 +43,12 @@ class EditalController extends Controller
         ->header('Content-Type', $tipoConteudo);
     }
 
+    public function getData($id)
+    {
+        $edital=Edital::findOrFail($id);
+        return response()->json([$edital],Response::HTTP_OK);
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -68,9 +74,17 @@ class EditalController extends Controller
         return response()->json(['message' => 'Edital gravado com sucesso!'], Response::HTTP_CREATED);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        //OFF
+        $data = $request->validate([
+            'titulo' => 'required|string',
+        ]);
+
+        $edital = Edital::findOrFail($id);
+        $edital->update($data);
+        $edital->save();
+
+        return response()->json(['message' => 'Título do edital atualizado com sucesso!', 'edital' => $edital], 200);
     }
 
 
