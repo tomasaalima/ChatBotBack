@@ -12,6 +12,6 @@ class Sobre extends Model
     protected $fillable =
     [
         'id',
-        'mensagem'
+        'mensagem',
     ];
 }

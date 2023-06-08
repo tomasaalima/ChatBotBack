@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class Usuario extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     use  HasFactory, Notifiable;
 
@@ -18,9 +18,9 @@ class Usuario extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'nome',
+        'name',
         'email',
-        'senha',
+        'password',
     ];
 
     /**
@@ -29,7 +29,7 @@ class Usuario extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $hidden = [
-        'senha',
+        'password',
         'remember_token',
     ];
 
