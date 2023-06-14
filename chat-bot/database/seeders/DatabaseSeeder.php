@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(SeedersPerguntasSeeder::class);
         $this->call(VideosSeeder::class);
+        \App\Models\User::factory(1)->create();
 
 
         /* Ambiente de testes
